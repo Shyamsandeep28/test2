@@ -1,7 +1,8 @@
 name: Inputs and Outputs Lab
 on:
   push:
-
+   tags:
+    - "v*"
 jobs:
   greet:
     runs-on: ubuntu-latest
