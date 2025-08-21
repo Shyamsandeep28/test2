@@ -1,15 +1,18 @@
 name: Greeting on variable day
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
+   inputs:
+    username:
+     description: "eneter your name"
+     required: true
+     default: "guset"
 
-
-  
 
 jobs:
   greeting_job:
-    runs-on: self-hosted
-    timeout-minutes: 1
+    runs-on: ubuntu-latest
+    
     
     steps:
       - name: "Step 1"
