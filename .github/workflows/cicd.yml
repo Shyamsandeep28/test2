@@ -1,3 +1,4 @@
+
 name: Inputs and Outputs Lab
 
 on:
@@ -11,19 +12,12 @@ on:
 jobs:
   greet:
     runs-on: ubuntu-latest
-    outputs:
-      final_greeting: ${{ steps.step1.outputs.greet_msg }}
     steps:
       - name: Save Greeting
         id: step1
         run: echo "greet_msg=Hello ${{ github.event.inputs.username }}" >> $GITHUB_OUTPUT
 
-      - name: Use Greeting in same job
-        run: echo "Final message in this job: ${{ steps.step1.outputs.greet_msg }}"
+      - name: Use Greeting
+        run: echo "Final message is ${{ steps.step1.outputs.greet_msg }}"
 
-  print_greeting:
-    runs-on: ubuntu-latest
-    needs: greet
-    steps:
-      - name: Print greeting from previous job
-        run: echo "Greeting from previous job is: ${{ needs.greet.outputs.final_greeting }}"
+
