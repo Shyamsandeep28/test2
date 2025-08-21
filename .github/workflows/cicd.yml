@@ -6,10 +6,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show the Github Contexts
-        run: echo "event by ${{github.actor}} on branch ${{github.branch}}"
+        run: echo "event by ${{github.actor}} on branch ${{github.ref}}"
 
       - name: Run only on main branch
-        if: github.branch == 'refs/heads/dev'
+        if: github.ref == 'refs/heads/dev'
         run: echo "This is main branch code"
 
       
