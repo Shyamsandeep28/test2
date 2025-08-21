@@ -1,33 +1,32 @@
-name: Greeting on variable day
+name: Input Variables
 
 on:
   workflow_dispatch:
    inputs:
     username:
-     description: "eneter your name"
+     description: "Enter user name"
      required: true
-     default: "guset"
+     default: "Guest"
 
 
 jobs:
-  create-user:
-    runs-on: ubuntu-latest
-    
+  greeting_job:
+    runs-on: ubuntu-latest   
     
     steps:
       - name: "Step 1"
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
-          First_Name: sandeep
+          First_Name: Priyanka
           DAY_OF_WEEK: sunday
           Greeting: Hello
-      - name: print usename
-        run: echo "${{github.event.inputs.username}}" >> $GITHUB_OUTPUT
+      - name: print username
+        run: echo "${{inputs.username}}">> $GITHUB_OUTPUT
+
+  create_user:
+      runs-on: ubuntu-latest   
+
+      steps:
+        - name: test output
+          run: echo "User Names is ${{needs.greeting_job.outputs.GITHUB_OUTPUT}}"
         
-  show-user:
-     needs: create-user
-     runs-on: ubuntu-latest
-     steps: 
-      - name: show username
-        run: echo "the usename is ${{needs.create-user.outputs.GITHUB_OUTPUT}}"
-       
