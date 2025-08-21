@@ -29,5 +29,5 @@ jobs:
      runs-on: ubuntu-latest
      steps: 
       - name: show username
-        run: echo "the usename is ${{needs.create-user.outputs.GITHUB_OUTPUT}}
+        run: echo "the usename is ${{needs.create-user.outputs.GITHUB_OUTPUT}}"
        
