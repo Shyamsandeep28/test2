@@ -21,6 +21,6 @@ jobs:
           First_Name: sandeep
           DAY_OF_WEEK: sunday
           Greeting: Hello
-      - name: "Step 2"
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+      - name: print usename
+        run: echo "$github.event.input.username"
        
