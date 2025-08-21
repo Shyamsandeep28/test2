@@ -6,5 +6,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: show the Github Contexts
-        run: echo "event by ${{github.actor}}"
+        run: echo "event by ${{github.actor}} on branch ${{github.refs}}"
       
