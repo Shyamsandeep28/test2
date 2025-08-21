@@ -22,5 +22,5 @@ jobs:
           DAY_OF_WEEK: sunday
           Greeting: Hello
       - name: print usename
-        run: echo "${{github.event.inputs.username}}"
+        run: echo "$github.event.inputs.username"
        
