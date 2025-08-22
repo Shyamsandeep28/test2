@@ -8,6 +8,7 @@ jobs:
    steps:
    - name: build job
      run: echo "building the application"
+     run: touc file.txt
      
   test:
    runs-on: ubuntu-latest
