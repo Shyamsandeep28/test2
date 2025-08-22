@@ -14,7 +14,10 @@ jobs:
       - name: checkout the code 
         uses: actions/checkout@v3
       - name: print message
-        run: echo "hello sandeep"
-        
+        run: |
+         echo "hello sandeep"   
+         sleep 20
+         echo "this is final message"
+      
 
     
