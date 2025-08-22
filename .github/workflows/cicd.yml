@@ -1,15 +1,20 @@
-name: Catch API Data
-
-on: [workflow_dispatch]
+name: con-job 
+on: 
+ push:
+  branches:
+  - main
+concurrency:
+  group: production-deploy-${{ github.ref }}
+  cancel-in-progress: true 
 
 jobs:
   get-api-data:
     runs-on: ubuntu-latest
     steps:
-      - name: Call API with curl
-        id: callapi
-        run: |
-          response=$(curl -s https://api.github.com/repos/actions/runner/releases/latest)
-          echo "Response: $response"
+      - name: checkout the code 
+        uses: actions/checkout@v3
+      - name: print message
+        run: echo "hello sandeep"
+        
 
     
