@@ -1,15 +1,15 @@
-name: shell script job 
-on:
-  push:
-  
+name: Catch API Data
+
+on: [workflow_dispatch]
+
 jobs:
- script-demo:
-   runs-on: ubuntu-latest
-   steps:
-   - name: checkout
-     uses: actions/checkout@v3
-   - name: Run Shell Script
-     run: sh script.sh
-  
-   
+  get-api-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call API with curl
+        id: callapi
+        run: |
+          response=$(curl -s https://api.github.com/repos/actions/runner/releases/latest)
+          echo "Response: $response"
+
     
